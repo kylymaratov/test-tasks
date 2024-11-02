@@ -1,0 +1,66 @@
+@use '@styles/colors' as *;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 67px 150px;
+
+  & > .logo {
+    color: $filthy_white;
+
+    & > img {
+      max-width: 230px;
+      max-height: 63px;
+    }
+    & > p {
+      margin-top: 45px;
+      opacity: 0.8;
+      line-height: 26px;
+      font-size: 14px;
+    }
+
+    & > .socials {
+      & > img {
+        margin: 46px 14px 0 14px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  & > .nav {
+    padding: 0;
+    & > li {
+      list-style-type: none;
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 24px;
+
+      & > a {
+        color: $white_color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  & > .info {
+    color: $white_color;
+
+    & > div {
+      & > p {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 15px;
+        color: $filthy_white;
+      }
+      & > strong {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 28px;
+      }
+    }
+  }
+}

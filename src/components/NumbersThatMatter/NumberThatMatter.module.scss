@@ -1,0 +1,84 @@
+@use '@styles/colors' as *;
+
+.numbersThatMatter {
+  & > h1 {
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .statistics {
+    display: flex;
+    justify-content: center;
+
+    & > .procentStats {
+      display: block;
+      max-width: 768px;
+      margin-right: 90px;
+
+      & > .procentStat {
+        margin-top: 94px;
+        display: flex;
+        align-items: start;
+        & > div {
+          display: block;
+
+          & > p {
+            font-size: 42px;
+            font-weight: 700;
+            margin: 17px 0 0 0;
+            line-height: 70px;
+          }
+        }
+        & > p {
+          margin: 0 0 0 35px;
+          font-size: 18px;
+          line-height: 21px;
+        }
+      }
+    }
+
+    & > .awardStats {
+      display: block;
+      margin-left: 90px;
+      transition: all 0.3s;
+
+      & > .awardStat {
+        margin-top: 30px;
+        max-width: 300px;
+        border-radius: 17px;
+        padding: 20px 20px 30px 20px;
+        box-shadow: $middle_box_shadow;
+        position: relative;
+        transition: all 0.3s;
+        top: 0;
+
+        &:hover {
+          top: -5px;
+        }
+
+        & > div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          & > h1 {
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 46px;
+            font-family: 'Nunito Sans', sans-serif;
+          }
+          & > img {
+            position: relative;
+            top: -7px;
+          }
+        }
+        & > p {
+          max-width: 92%;
+          margin: 44px 0 0 0;
+          font-size: 18px;
+          line-height: 21px;
+        }
+      }
+    }
+  }
+}

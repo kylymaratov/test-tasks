@@ -1,0 +1,33 @@
+@use '@styles/colors.scss' as *;
+
+.appBar {
+  background: $primary_gradient;
+  color: $white_color;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.specialistSearch {
+  position: relative;
+  top: -50px;
+  border-radius: 45px;
+  background-color: $white_color;
+}
+
+.createProfile {
+  background: $secondary_gradient;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.candidateInfo {
+  margin: 140px 0;
+}
+
+.footer {
+  margin-top: 130px;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  background: $primary_gradient;
+}

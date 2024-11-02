@@ -1,0 +1,111 @@
+@use '@styles/colors' as *;
+@use '@styles/mixins' as *;
+
+.appInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+
+  & > .address > p {
+    &:last-child {
+      margin-left: 44px;
+    }
+  }
+
+  & > .contacts {
+    & > hr {
+      margin: 0 10px;
+      height: 15px;
+      width: 0.1px;
+      background-color: $white_color;
+    }
+  }
+
+  & > div {
+    display: inherit;
+    align-items: inherit;
+
+    & > p {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  & > .menu {
+    display: flex;
+
+    & > li {
+      list-style-type: none;
+      margin: 0 24px 0 24px;
+      line-height: 19px;
+      font-size: 16px;
+
+      & > a {
+        color: $white_color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  & > .controls {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    & > button {
+      @include button;
+      color: $white_color;
+      cursor: pointer;
+    }
+
+    & > .languageSwitcher {
+      margin-right: 10px;
+      & > span {
+        margin-left: 6px;
+        position: relative;
+        top: -5px;
+        text-transform: uppercase;
+        & > img {
+          position: relative;
+          top: -2px;
+        }
+      }
+    }
+
+    & > .search {
+      margin-right: 5px;
+    }
+
+    & > .loginBtn {
+      background-color: $white_color;
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: black;
+      margin-top: -4px;
+    }
+  }
+}
+
+.fixed {
+  background: $primary_gradient;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 68px;
+  margin: 0;
+  z-index: 9999;
+  padding: 0 60px;
+  width: calc(100% - 120px);
+}
+
+.withBg {
+  background: $light_blue_color;
+}

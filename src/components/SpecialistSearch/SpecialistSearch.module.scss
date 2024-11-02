@@ -1,0 +1,101 @@
+@use '@styles/colors.scss' as *;
+@use '@styles/mixins.scss' as *;
+
+.specialists {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > .specialist {
+    width: 270px;
+    margin: 47px 20px;
+    box-shadow: $middle_box_shadow;
+    border-radius: 16px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    & > .image {
+      display: flex;
+      justify-content: center;
+    }
+
+    & > .image > img {
+      width: 116px;
+      height: 116px;
+    }
+    & > p {
+      text-align: center;
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+}
+
+.searchSection {
+  margin-top: 100px;
+
+  .search {
+    margin: 0 auto;
+    width: 50%;
+    justify-content: center;
+    display: flex;
+
+    & > button {
+      @include button;
+      width: 100px;
+      background-color: $blue_color;
+      color: $white_color;
+      border-bottom-right-radius: 12px;
+      border-top-right-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    & > .searchField {
+      width: 100%;
+      display: flex;
+      box-shadow: $middle_box_shadow;
+      padding: 5px 10px;
+      border-radius: 12px;
+
+      & > input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        &::placeholder {
+          font-weight: 400;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .filters {
+    margin-top: 34px;
+    display: flex;
+    justify-content: center;
+
+    & > button {
+      @include button;
+      border: 1px solid $dark_gray_color;
+      border-radius: 14px;
+      padding: 10px 15px;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0 10px;
+      text-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: $gray_color;
+      & > img {
+        margin-left: 7px;
+      }
+    }
+  }
+}

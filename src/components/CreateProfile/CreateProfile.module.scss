@@ -1,0 +1,44 @@
+@use '@styles/colors' as *;
+@use '@styles/mixins' as *;
+
+.createProfile {
+  display: flex;
+  justify-content: center;
+  margin: 70px 0;
+  width: 100%;
+
+  & > div {
+    margin: 0 140px;
+  }
+
+  & > .info {
+    & > h1 {
+      font-weight: 700;
+      font-size: 48px;
+    }
+
+    & > p {
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    & > button {
+      @include button;
+      background-color: $blue_color;
+      padding: 12px;
+      color: white;
+      border-radius: 10px;
+      font-size: 18px;
+      width: 210px;
+      height: 50px;
+      margin-top: 44px;
+    }
+  }
+
+  & > .banner {
+    & > img {
+      width: 500px;
+      height: 500px;
+    }
+  }
+}
