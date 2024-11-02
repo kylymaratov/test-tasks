@@ -23,7 +23,7 @@ export const NumbersThatMatter: React.FC = () => {
         </div>
         <div className={styles.awardStats}>
           {cardStatistics.map((item, i) => (
-            <div className={styles.awardStat}>
+            <div className={styles.awardStat} key={i}>
               <div>
                 <h1>{item.title}</h1>
                 <Image src={item.icon} alt="icon" />
