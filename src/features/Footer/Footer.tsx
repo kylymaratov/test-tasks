@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
         </div>
         <p>© Copyright 2024, Все права защищены</p>
       </div>
-      <ul className={styles.nav}>
+      <div className={styles.nav}>
         <p>
           <Link href="/about">О компании</Link>
         </p>
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
         <p>
           <Link href="/analitycs">Аналитика</Link>
         </p>
-      </ul>
+      </div>
       <div className={styles.info}>
         <div>
           <p>Контакты</p>

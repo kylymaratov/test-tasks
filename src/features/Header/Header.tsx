@@ -84,21 +84,22 @@ export const Header: React.FC = () => {
       <Container>
         <div className={classNames(styles.navbar, fixed && styles.fixed)}>
           <div className={styles.logo}>
-            <Image src={Logo} alt="logo" />
+            <Link href="/">
+              <Image src={Logo} alt="logo" />
+            </Link>
           </div>
           <div className={styles.menu}>
             {menuList.map((item, i) => (
-              <li key={i}>
+              <p key={i}>
                 <Link href={item.href}>{item.title}</Link>
-              </li>
+              </p>
             ))}
           </div>
           <div className={styles.controls}>
             <button type="button" className={styles.search}>
               <Image src={SearchIcon} alt="search" />
             </button>
-            <button
-              type="button"
+            <div
               className={styles.languageSwitcher}
               onClick={() => languageSwitcher.setIsComponentVisible(true)}
             >
@@ -118,7 +119,7 @@ export const Header: React.FC = () => {
                   <Link href="/en">{t?.home.navbar.language_en}</Link>
                 </div>
               </DropList>
-            </button>
+            </div>
             <button type="button" className={styles.loginBtn}>
               {t?.home.navbar.loginBtn}
             </button>
