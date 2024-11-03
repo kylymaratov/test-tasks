@@ -19,7 +19,7 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
   const { locale } = await params;
   const t = await getDictionary(locale);
   return (
-    <html lang={locale} dir={locale}>
+    <html lang={locale}>
       <body>
         <TranslationProvider t={t} locale={locale}>
           {children}
