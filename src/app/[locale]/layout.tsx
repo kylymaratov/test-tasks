@@ -6,9 +6,9 @@ import { TranslationProvider } from '@/context/TranslationContext';
 
 interface RootLayoutProps {
   children: ReactNode;
-  params: {
+  params: Promise<{
     locale: Languages;
-  };
+  }>;
 }
 
 export const metadata: Metadata = {
