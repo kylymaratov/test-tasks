@@ -1,0 +1,39 @@
+@use '@styles/colors' as *;
+
+.dropList {
+  top: 20px;
+  position: relative;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid $white_color;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.list {
+  display: block;
+  position: absolute;
+  background: $white_color;
+  color: black;
+  border-radius: 5px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 3;
+  box-shadow: $middle_box_shadow;
+  padding: 10px;
+  opacity: 0;
+  top: -10px;
+  transition: all 0.2s;
+}
+
+.open {
+  top: 0;
+  opacity: 1;
+}

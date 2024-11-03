@@ -1,3 +1,17 @@
 {
-  "loginBtn": "Login"
+  "home": {
+    "navbar": {
+      "menu_1": "About",
+      "menu_2": "Testing",
+      "menu_3": "News",
+      "menu_4": "Analitycs",
+      "menu_5": "Orders",
+      "loginBtn": "Login",
+      "language_en": "English",
+      "language_ru": "Russian"
+    },
+    "section_1": {
+      "text": "Platform for studying employee engagement and loyalty"
+    }
+  }
 }

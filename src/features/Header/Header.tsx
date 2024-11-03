@@ -8,34 +8,47 @@ import SearchIcon from '@/public/icons/search.svg';
 import LanguageIcon from '@/public/icons/language.svg';
 import Link from 'next/link';
 import { Container } from '../Container/Container';
-import { useTranslation } from 'react-i18next';
 import { useEffect, useMemo, useState } from 'react';
 import classNames from 'classnames';
+import { useTranslationContext } from '@/context/TranslationContext';
+import { Languages } from '@/utils/dictionaries';
+import { DropList } from '@/components/DropList/DropList';
+import UseVisible from '@/hooks/UseVisible';
+
+const localNames = {
+  en: 'eng',
+  ru: 'рус',
+};
+
+const getLangName = (locale: Languages) => {
+  return localNames[locale];
+};
 
 export const Header: React.FC = () => {
-  const { t, i18n } = useTranslation('common');
+  const { t, locale } = useTranslationContext();
   const [fixed, setFixed] = useState<boolean>(false);
+  const languageSwitcher = UseVisible(false);
 
   const menuList = useMemo(
     () => [
       {
-        title: 'О компании',
+        title: t?.home.navbar.menu_1,
         href: '/about',
       },
       {
-        title: 'Тестирование',
+        title: t?.home.navbar.menu_2,
         href: '/testing',
       },
       {
-        title: 'Новости',
+        title: t?.home.navbar.menu_3,
         href: '/news',
       },
       {
-        title: 'Аналитика',
+        title: t?.home.navbar.menu_4,
         href: '/analytics',
       },
       {
-        title: 'Заказы',
+        title: t?.home.navbar.menu_5,
         href: '/orders',
       },
     ],
@@ -84,14 +97,30 @@ export const Header: React.FC = () => {
             <button type="button" className={styles.search}>
               <Image src={SearchIcon} alt="search" />
             </button>
-            <button type="button" className={styles.languageSwitcher}>
+            <button
+              type="button"
+              className={styles.languageSwitcher}
+              onClick={() => languageSwitcher.setIsComponentVisible(true)}
+            >
               <Image src={LanguageIcon} alt="language" />
               <span>
-                рус <Image src={DropDownIcon} alt="dropdown" />
+                {getLangName(locale)}{' '}
+                <Image src={DropDownIcon} alt="dropdown" />
               </span>
+              <DropList
+                ref={languageSwitcher.ref}
+                open={languageSwitcher.isComponentVisible}
+              >
+                <div className={styles.link}>
+                  <Link href="/ru">{t?.home.navbar.language_ru}</Link>
+                </div>
+                <div className={styles.link}>
+                  <Link href="/en">{t?.home.navbar.language_en}</Link>
+                </div>
+              </DropList>
             </button>
             <button type="button" className={styles.loginBtn}>
-              Войти
+              {t?.home.navbar.loginBtn}
             </button>
           </div>
         </div>

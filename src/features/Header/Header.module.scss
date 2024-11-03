@@ -109,3 +109,17 @@
 .withBg {
   background: $light_blue_color;
 }
+
+.link {
+  margin-top: 5px;
+  & > a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+
+    &:hover {
+      color: $blue_color;
+    }
+  }
+}

@@ -1,12 +1,12 @@
-import { Header } from '@/components/Header/Header';
+import { Header } from '@/features/Header/Header';
 import styles from './styles/Home.module.scss';
-import { SpecialistSearch } from '@/components/SpecialistSearch/SpecialistSearch';
-import { MainSection } from '@/components/Main/Main';
-import { CreateProfile } from '@/components/CreateProfile/CreateProfile';
-import { NumbersThatMatter } from '@/components/NumbersThatMatter/NumbersThatMatter';
-import { CandidateInfo } from '@/components/CandidateInfo/CandidateInfo';
-import { News } from '@/components/News/News';
-import { Footer } from '@/components/Footer/Footer';
+import { SpecialistSearch } from '@/features/SpecialistSearch/SpecialistSearch';
+import { MainSection } from '@/features/Main/Main';
+import { CreateProfile } from '@/features/CreateProfile/CreateProfile';
+import { NumbersThatMatter } from '@/features/NumbersThatMatter/NumbersThatMatter';
+import { CandidateInfo } from '@/features/CandidateInfo/CandidateInfo';
+import { News } from '@/features/News/News';
+import { Footer } from '@/features/Footer/Footer';
 
 function Home() {
   return (

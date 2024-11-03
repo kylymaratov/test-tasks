@@ -1,5 +1,6 @@
 .mainSection {
   margin: 93px auto;
+  max-width: 50%;
   text-align: center;
   height: 400px;
 
@@ -12,12 +13,16 @@
   }
 
   & > p {
-    margin: 15px 0;
+    margin: 15px auto;
     font-weight: 400;
     font-size: 16px;
+    max-width: 350px;
   }
 
   & > img {
+    width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
     transform: scale(1.1);
     pointer-events: none;
     user-select: none;

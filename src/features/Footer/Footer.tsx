@@ -23,15 +23,15 @@ export const Footer: React.FC = () => {
         <p>© Copyright 2024, Все права защищены</p>
       </div>
       <ul className={styles.nav}>
-        <li>
+        <p>
           <Link href="/about">О компании</Link>
-        </li>
-        <li>
+        </p>
+        <p>
           <Link href="/testing">Тестирование</Link>
-        </li>
-        <li>
+        </p>
+        <p>
           <Link href="/analitycs">Аналитика</Link>
-        </li>
+        </p>
       </ul>
       <div className={styles.info}>
         <div>
