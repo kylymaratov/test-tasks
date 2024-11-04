@@ -84,7 +84,7 @@ const Header: React.FC = () => {
       <Container>
         <div className={classNames(styles.navbar, fixed && styles.fixed)}>
           <div className={styles.logo}>
-            <Link href="/">
+            <Link href={`/${locale}`}>
               <Image src={Logo} alt="logo" />
             </Link>
           </div>
@@ -113,10 +113,14 @@ const Header: React.FC = () => {
                 open={languageSwitcher.isComponentVisible}
               >
                 <div className={styles.link}>
-                  <Link href="/ru">{t?.home.navbar.language_ru}</Link>
+                  <Link href="/ru" prefetch>
+                    {t?.home.navbar.language_ru}
+                  </Link>
                 </div>
                 <div className={styles.link}>
-                  <Link href="/en">{t?.home.navbar.language_en}</Link>
+                  <Link href="/en" prefetch>
+                    {t?.home.navbar.language_en}
+                  </Link>
                 </div>
               </DropList>
             </div>
