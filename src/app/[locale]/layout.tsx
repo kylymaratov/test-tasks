@@ -13,6 +13,7 @@ interface RootLayoutProps {
 
 export const metadata: Metadata = {
   title: 'Matrix',
+  description: 'Matrix',
 };
 
 const RootLayout = async ({ children, params }: RootLayoutProps) => {

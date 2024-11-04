@@ -4,7 +4,7 @@ import { UseConent } from './hooks/UseContent';
 import styles from './News.module.scss';
 import { Container } from '../Container/Container';
 
-export const News: React.FC = () => {
+const News: React.FC = () => {
   const { news } = UseConent();
 
   const openNews = () => {};
@@ -43,3 +43,4 @@ export const News: React.FC = () => {
     </Container>
   );
 };
+export default News;

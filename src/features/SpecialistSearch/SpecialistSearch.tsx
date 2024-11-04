@@ -17,7 +17,7 @@ interface Filters {
   spec: string;
 }
 
-export const SpecialistSearch: React.FC = () => {
+const SpecialistSearch: React.FC = () => {
   const [searchText, setSearchText] = useState<string>('');
   const [filters, setFilters] = useState<Filters>({
     location: '',
@@ -80,7 +80,7 @@ export const SpecialistSearch: React.FC = () => {
         {specialistList.map((specialist, i) => (
           <div key={i} className={styles.specialist}>
             <div className={styles.image}>
-              <Image src={specialist.icon} alt="draw" />
+              <Image src={specialist.icon} alt="draw" priority />
             </div>
             <p>{specialist.title}</p>
           </div>
@@ -112,3 +112,5 @@ export const SpecialistSearch: React.FC = () => {
     </Container>
   );
 };
+
+export default SpecialistSearch;

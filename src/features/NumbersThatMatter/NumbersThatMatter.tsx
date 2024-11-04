@@ -1,9 +1,8 @@
-import { useMemo } from 'react';
 import styles from './NumberThatMatter.module.scss';
 import { UseContent } from './hooks/UseContent';
 import Image from 'next/image';
 
-export const NumbersThatMatter: React.FC = () => {
+const NumbersThatMatter: React.FC = () => {
   const { statistics, cardStatistics } = UseContent();
 
   return (
@@ -36,3 +35,5 @@ export const NumbersThatMatter: React.FC = () => {
     </div>
   );
 };
+
+export default NumbersThatMatter;

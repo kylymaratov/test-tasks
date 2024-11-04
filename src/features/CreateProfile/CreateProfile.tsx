@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styles from './CreateProfile.module.scss';
 import CreateProfileDraw from '@/public/images/section_3/create_proifle_draw.png';
 
-export const CreateProfile: React.FC = () => {
+const CreateProfile: React.FC = () => {
   return (
     <div className={styles.createProfile}>
       <div className={styles.info}>
@@ -23,3 +23,5 @@ export const CreateProfile: React.FC = () => {
     </div>
   );
 };
+
+export default CreateProfile;

@@ -2,8 +2,7 @@ import Image from 'next/image';
 import styles from './CandidateInfo.module.scss';
 import CandidateInfoDraw from '@/public/images/section_5/candidate_info_draw.png';
 import { Container } from '../Container/Container';
-
-export const CandidateInfo: React.FC = () => {
+const CandidateInfo: React.FC = () => {
   return (
     <Container>
       <div className={styles.candidateInfo}>
@@ -19,3 +18,5 @@ export const CandidateInfo: React.FC = () => {
     </Container>
   );
 };
+
+export default CandidateInfo;

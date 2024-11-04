@@ -24,7 +24,7 @@ const getLangName = (locale: Languages) => {
   return localNames[locale];
 };
 
-export const Header: React.FC = () => {
+const Header: React.FC = () => {
   const { t, locale } = useTranslationContext();
   const [fixed, setFixed] = useState<boolean>(false);
   const languageSwitcher = UseVisible(false);
@@ -129,3 +129,5 @@ export const Header: React.FC = () => {
     </div>
   );
 };
+
+export default Header;

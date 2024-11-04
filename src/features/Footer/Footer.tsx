@@ -8,7 +8,7 @@ import WhatsappIcon from '@/public/icons/whatsapp.svg';
 import YoutubeIcon from '@/public/icons/youtube.svg';
 import TelegramIcon from '@/public/icons/telegram.svg';
 
-export const Footer: React.FC = () => {
+const Footer: React.FC = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.logo}>
@@ -50,3 +50,5 @@ export const Footer: React.FC = () => {
     </div>
   );
 };
+
+export default Footer;

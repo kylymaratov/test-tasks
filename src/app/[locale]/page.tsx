@@ -1,39 +1,48 @@
-import { Header } from '@/features/Header/Header';
+import AnimatedSection from '@/components/Animation/AnimationSection';
 import styles from './styles/Home.module.scss';
-import { SpecialistSearch } from '@/features/SpecialistSearch/SpecialistSearch';
-import { MainSection } from '@/features/Main/Main';
-import { CreateProfile } from '@/features/CreateProfile/CreateProfile';
-import { NumbersThatMatter } from '@/features/NumbersThatMatter/NumbersThatMatter';
-import { CandidateInfo } from '@/features/CandidateInfo/CandidateInfo';
-import { News } from '@/features/News/News';
-import { Footer } from '@/features/Footer/Footer';
+import dynamic from 'next/dynamic';
+
+const Header = dynamic(() => import('@/features/Header/Header'));
+const SpecialistSearch = dynamic(
+  () => import('@/features/SpecialistSearch/SpecialistSearch'),
+);
+const MainSection = dynamic(() => import('@/features/Main/Main'));
+const CreateProfile = dynamic(
+  () => import('@/features/CreateProfile/CreateProfile'),
+);
+const NumbersThatMatter = dynamic(
+  () => import('@/features/NumbersThatMatter/NumbersThatMatter'),
+);
+const CandidateInfo = dynamic(
+  () => import('@/features/CandidateInfo/CandidateInfo'),
+);
+const News = dynamic(() => import('@/features/News/News'));
+const Footer = dynamic(() => import('@/features/Footer/Footer'));
+
+const sections = [
+  { id: 'specialistSearch', component: SpecialistSearch },
+  { id: 'createProfile', component: CreateProfile },
+  { id: 'numbersThatMatter', component: NumbersThatMatter },
+  { id: 'candidateInfo', component: CandidateInfo },
+  { id: 'news', component: News },
+  { id: 'footer', component: Footer },
+];
 
 function Home() {
   return (
-    <>
+    <main>
       <section id="appBar" className={styles.appBar}>
         <Header />
         <MainSection />
       </section>
-      <section id="specialistSearch" className={styles.specialistSearch}>
-        <SpecialistSearch />
-      </section>
-      <section id="createProfile" className={styles.createProfile}>
-        <CreateProfile />
-      </section>
-      <section id="numbersThatMatter" className={styles.numbersThatMatter}>
-        <NumbersThatMatter />
-      </section>
-      <section id="candidateInfo" className={styles.candidateInfo}>
-        <CandidateInfo />
-      </section>
-      <section id="news" className={styles.news}>
-        <News />
-      </section>
-      <section id="footer" className={styles.footer}>
-        <Footer />
-      </section>
-    </>
+      {sections.map(({ id, component: Component }) => (
+        <AnimatedSection key={id}>
+          <section id={id} className={styles[id]}>
+            <Component />
+          </section>
+        </AnimatedSection>
+      ))}
+    </main>
   );
 }
 
