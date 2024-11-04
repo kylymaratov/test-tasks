@@ -1,14 +1,16 @@
 'use client';
 
 import { UseAnimation } from '@/hooks/UseAnimation';
-import { useInView, motion } from 'framer-motion';
-import React, { ReactNode, useRef } from 'react';
+import { motion } from 'framer-motion';
+import React, { ReactNode } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface Props {
   children: ReactNode;
   className?: string;
   initial?: any;
   transition?: any;
+  threshold?: number;
 }
 
 const AnimatedSection: React.FC<Props> = ({
@@ -16,9 +18,12 @@ const AnimatedSection: React.FC<Props> = ({
   className,
   initial = { opacity: 0, y: 50 },
   transition = { duration: 0.5 },
+  threshold = 0.3,
 }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const inView = useInView(ref, { once: true });
+  const { ref, inView } = useInView({
+    threshold,
+    triggerOnce: true,
+  });
 
   const { animate } = UseAnimation({ initial, inView, transition });
 
