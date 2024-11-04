@@ -41,7 +41,7 @@ const Header: React.FC = () => {
       },
       {
         title: t?.home.navbar.menu_3,
-        href: '/news',
+        href: '#news',
       },
       {
         title: t?.home.navbar.menu_4,

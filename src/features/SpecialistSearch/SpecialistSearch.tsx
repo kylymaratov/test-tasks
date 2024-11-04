@@ -9,6 +9,7 @@ import styles from './SpecialistSearch.module.scss';
 import BlackSearchIcon from '@/public/icons/black_search.svg';
 import { Container } from '../Container/Container';
 import BlackDropDown from '@/public/icons/black_dropdown.svg';
+import { motion } from 'framer-motion';
 
 interface Filters {
   location: string;
@@ -78,12 +79,18 @@ const SpecialistSearch: React.FC = () => {
     <Container>
       <div className={styles.specialists}>
         {specialistList.map((specialist, i) => (
-          <div key={i} className={styles.specialist}>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: i / 4, type: 'spring' }}
+            key={i}
+            className={styles.specialist}
+          >
             <div className={styles.image}>
               <Image src={specialist.icon} alt="draw" priority />
             </div>
             <p>{specialist.title}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
       <div className={styles.searchSection}>

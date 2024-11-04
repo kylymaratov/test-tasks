@@ -23,7 +23,7 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
     <html lang={locale}>
       <body>
         <TranslationProvider t={t} locale={locale}>
-          {children}
+          <main> {children}</main>
         </TranslationProvider>
       </body>
     </html>

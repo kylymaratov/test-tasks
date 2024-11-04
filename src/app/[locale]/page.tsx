@@ -30,7 +30,7 @@ const sections = [
 
 function Home() {
   return (
-    <main>
+    <>
       <section id="appBar" className={styles.appBar}>
         <Header />
         <MainSection />
@@ -42,7 +42,7 @@ function Home() {
           </section>
         </AnimatedSection>
       ))}
-    </main>
+    </>
   );
 }
 

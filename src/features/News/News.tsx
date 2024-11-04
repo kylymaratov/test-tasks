@@ -21,7 +21,7 @@ const News: React.FC = () => {
         <div className={styles.gallery}>
           {news.map((n, i) => (
             <div key={i} className={styles.nw}>
-              <Image src={n.img} alt={n.title} />
+              <Image src={n.img} alt={n.title} loading="lazy" />
               <p className={styles.type}>{n.type}</p>
               <div className={styles.content}>
                 <p className={styles.title}>{n.title}</p>
