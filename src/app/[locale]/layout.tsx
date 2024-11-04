@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { getDictionary, Languages } from '@/utils/dictionaries';
 import { TranslationProvider } from '@/context/TranslationContext';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -23,7 +24,10 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
     <html lang={locale}>
       <body>
         <TranslationProvider t={t} locale={locale}>
-          <main> {children}</main>
+          <main>
+            {children}
+            <SpeedInsights />
+          </main>
         </TranslationProvider>
       </body>
     </html>
