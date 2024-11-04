@@ -10,7 +10,7 @@ interface Props {
   className?: string;
   initial?: any;
   transition?: any;
-  threshold?: number;
+  id: string;
 }
 
 const AnimatedSection: React.FC<Props> = ({
@@ -18,17 +18,18 @@ const AnimatedSection: React.FC<Props> = ({
   className,
   initial = { opacity: 0, y: 50 },
   transition = { duration: 0.5 },
-  threshold = 0.3,
+  id,
 }) => {
   const { ref, inView } = useInView({
-    threshold,
+    threshold: 0.2,
     triggerOnce: true,
   });
 
-  const { animate } = UseAnimation({ initial, inView, transition });
+  const { animate } = UseAnimation({ initial, inView });
 
   return (
     <motion.section
+      id={id}
       ref={ref}
       className={className}
       initial={initial}

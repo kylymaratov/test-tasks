@@ -1,9 +1,6 @@
-'use client';
 import styles from './NumberThatMatter.module.scss';
 import { UseContent } from './hooks/UseContent';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import AnimatedNumber from '@/components/Animation/AnimationNumber';
 
 const NumbersThatMatter: React.FC = () => {
   const { statistics, cardStatistics } = UseContent();
@@ -17,7 +14,7 @@ const NumbersThatMatter: React.FC = () => {
             <div className={styles.procentStat} key={i}>
               <div>
                 <Image src={item.img} alt="image" loading="lazy" />
-                <AnimatedNumber from={0} to={item.procent} endText="%" />
+                <p>{item.procent}%</p>
               </div>
               <p>{item.text}</p>
             </div>
@@ -25,19 +22,13 @@ const NumbersThatMatter: React.FC = () => {
         </div>
         <div className={styles.awardStats}>
           {cardStatistics.map((item, i) => (
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: i / 3, type: 'spring', delay: 1.5 }}
-              className={styles.awardStat}
-              key={i}
-            >
+            <div className={styles.awardStat} key={i}>
               <div>
                 <h1>{item.title}</h1>
                 <Image src={item.icon} alt="icon" loading="lazy" />
               </div>
               <p>{item.text}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

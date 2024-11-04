@@ -36,10 +36,8 @@ function Home() {
         <MainSection />
       </section>
       {sections.map(({ id, component: Component }) => (
-        <AnimatedSection key={id}>
-          <section id={id} className={styles[id]}>
-            <Component />
-          </section>
+        <AnimatedSection key={id} id={id} className={styles[id]}>
+          <Component />
         </AnimatedSection>
       ))}
     </>
