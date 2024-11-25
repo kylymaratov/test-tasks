@@ -9,8 +9,6 @@ const orderSchema = new mongoose.Schema(
     amountA: { type: Number, required: true },
     amountB: { type: Number, required: true },
     isMarket: {type: Boolean, required: true, default: true},
-    side: { type: String, enum: ['buy', 'sell'], required: true },
-    filled: { type: Number, default: 0 },
     active: { type: Boolean, default: true },
     blockNumber: {type: Number, default: 0}
   },
