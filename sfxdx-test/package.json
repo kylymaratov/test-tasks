@@ -6,9 +6,9 @@
     "start": "cross-env NODE_ENV=production node dist/main.js",
     "dev": "cross-env NODE_ENV=development nodemon --watch src --ext ts --exec ts-node src/main.ts",
     "build": "npx tsc",
-    "lint": "eslint \"{src}/**/*.ts\" --fix",
-    "prettier:check": "npx prettier \"src/**/*.{ts,tsx}\" --check",
-    "prettier:format": "npx prettier \"src/**/*.{ts}\" --write"
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "prettier:check": "npx prettier \"src/**/*.ts\" --check",
+    "prettier:format": "npx prettier \"src/**/*.ts\" --write"
   },
   "keywords": [],
   "author": "",

@@ -25,7 +25,7 @@ class Infura extends Web3 {
       });
 
       const events = await this.contract.getPastEvents('OrderCreated', {
-        fromBlock: lastCreatedOrder?.orderId,
+        fromBlock: lastCreatedOrder?.blockNumber,
         toBlock: 'latest',
       });
 
@@ -48,7 +48,7 @@ class Infura extends Web3 {
       }
 
       const matchedEvents = await this.contract.getPastEvents('OrderMatched', {
-        fromBlock: lastCreatedOrder?.orderId,
+        fromBlock: lastCreatedOrder?.blockNumber,
         toBlock: 'latest',
       });
 
@@ -64,7 +64,7 @@ class Infura extends Web3 {
       const cancelledEvents = await this.contract.getPastEvents(
         'OrderCancelled',
         {
-          fromBlock: lastCreatedOrder?.orderId,
+          fromBlock: lastCreatedOrder?.blockNumber,
           toBlock: 'latest',
         },
       );
@@ -82,6 +82,7 @@ class Infura extends Web3 {
   async listenOrders() {
     this.contract.events.OrderCreated().on('data', async (event: any) => {
       try {
+        const blockNumber = event.blockNumber; 
         const { orderId, tokenA, tokenB, user, amountA, amountB, type, side } =
           event.returnValues;
 
@@ -96,6 +97,7 @@ class Infura extends Web3 {
           side,
           active: false,
           filled: 1,
+          blockNumber
         });
         console.info('OrderCreated: ', orderId);
       } catch (error) {

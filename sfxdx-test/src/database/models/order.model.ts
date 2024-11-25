@@ -12,6 +12,7 @@ const orderSchema = new mongoose.Schema(
     side: { type: String, enum: ['buy', 'sell'], required: true },
     filled: { type: Number, default: 0 },
     active: { type: Boolean, default: true },
+    blockNumber: {type: Number, default: 0}
   },
   { timestamps: true },
 );
