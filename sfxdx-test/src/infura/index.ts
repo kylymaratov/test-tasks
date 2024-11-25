@@ -30,10 +30,10 @@ class Infura extends Web3 {
       });
 
       for (const event of events) {
-        const { orderId, tokenA, tokenB, user, amountA, amountB, type, side } =
+        const { id, tokenA, tokenB, user, amountA, amountB, type, side } =
           event.returnValues;
         await OrderModel.create({
-          orderId,
+          orderId: id,
           tokenA,
           tokenB,
           user,
@@ -44,7 +44,7 @@ class Infura extends Web3 {
           active: false,
           filled: 1,
         });
-        console.info('OrderCreated synced: ', orderId);
+        console.info('OrderCreated synced: ', id);
       }
 
       const matchedEvents = await this.contract.getPastEvents('OrderMatched', {
@@ -53,12 +53,12 @@ class Infura extends Web3 {
       });
 
       for (const event of matchedEvents) {
-        const { orderId, filled } = event.returnValues;
+        const { id, filled } = event.returnValues;
         await OrderModel.findOneAndUpdate(
-          { orderId },
+          { orderId: id },
           { filled, active: filled === 1 },
         );
-        console.info('OrderMatched synced: ', orderId);
+        console.info('OrderMatched synced: ', id);
       }
 
       const cancelledEvents = await this.contract.getPastEvents(
@@ -70,9 +70,9 @@ class Infura extends Web3 {
       );
 
       for (const event of cancelledEvents) {
-        const { orderId } = event.returnValues;
-        await OrderModel.findOneAndUpdate({ orderId }, { active: false });
-        console.info('OrderCancelled synced: ', orderId);
+        const { id } = event.returnValues;
+        await OrderModel.findOneAndUpdate( { orderId: id },{ active: false });
+        console.info('OrderCancelled synced: ', id);
       }
     } catch (error) {
       console.error('Error syncing orders:', error);
@@ -83,11 +83,11 @@ class Infura extends Web3 {
     this.contract.events.OrderCreated().on('data', async (event: any) => {
       try {
         const blockNumber = event.blockNumber; 
-        const { orderId, tokenA, tokenB, user, amountA, amountB, type, side } =
+        const { id, tokenA, tokenB, user, amountA, amountB, type, side } =
           event.returnValues;
 
         await OrderModel.create({
-          orderId,
+          orderId: id,
           tokenA,
           tokenB,
           user,
@@ -99,7 +99,7 @@ class Infura extends Web3 {
           filled: 1,
           blockNumber
         });
-        console.info('OrderCreated: ', orderId);
+        console.info('OrderCreated: ', id);
       } catch (error) {
         console.error(event.event, (error as Error).message);
       }
@@ -107,12 +107,12 @@ class Infura extends Web3 {
 
     this.contract.events.OrderMatched().on('data', async (event: any) => {
       try {
-        const { orderId, filled } = event.returnValues;
+        const { id, filled } = event.returnValues;
         await OrderModel.findOneAndUpdate(
-          { orderId },
+          { orderId:id},
           { filled, active: filled === 1 },
         );
-        console.info('OrderMatched: ', orderId);
+        console.info('OrderMatched: ', id);
       } catch (error) {
         console.error(event.event, (error as Error).message);
       }
@@ -120,9 +120,9 @@ class Infura extends Web3 {
 
     this.contract.events.OrderCancelled().on('data', async (event: any) => {
       try {
-        const { orderId } = event.returnValues;
-        await OrderModel.findOneAndUpdate({ orderId }, { active: false });
-        console.info('OrderCancelled: ', orderId);
+        const { id } = event.returnValues;
+        await OrderModel.findOneAndUpdate({ orderId: id }, { active: false });
+        console.info('OrderCancelled: ', id);
       } catch (error) {
         console.error(event.event, (error as Error).message);
       }
