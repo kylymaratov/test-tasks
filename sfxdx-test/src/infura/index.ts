@@ -83,7 +83,7 @@ class Infura extends Web3 {
     this.contract.events.OrderCreated().on('data', async (event: any) => {
       try {
         const blockNumber = event.blockNumber; 
-        const { id, tokenA, tokenB, user, amountA, amountB, type, side } =
+        const { id, tokenA, tokenB, user, amountA, amountB, isMarket } =
           event.returnValues;
 
         await OrderModel.create({
@@ -93,10 +93,8 @@ class Infura extends Web3 {
           user,
           amountA,
           amountB,
-          type,
-          side,
+          isMarket,
           active: false,
-          filled: 1,
           blockNumber
         });
         console.info('OrderCreated: ', id);
@@ -107,10 +105,10 @@ class Infura extends Web3 {
 
     this.contract.events.OrderMatched().on('data', async (event: any) => {
       try {
-        const { id, filled } = event.returnValues;
+        const { id, amountLeftToFill, amountReceived } = event.returnValues;
         await OrderModel.findOneAndUpdate(
-          { orderId:id},
-          { filled, active: filled === 1 },
+          { orderId:id },
+          { active: amountReceived === amountLeftToFill ? false : true },
         );
         console.info('OrderMatched: ', id);
       } catch (error) {

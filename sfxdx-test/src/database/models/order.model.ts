@@ -8,7 +8,7 @@ const orderSchema = new mongoose.Schema(
     user: { type: String, required: true },
     amountA: { type: Number, required: true },
     amountB: { type: Number, required: true },
-    type: { type: String, enum: ['market', 'limit'], required: true },
+    isMarket: {type: Boolean, required: true, default: true},
     side: { type: String, enum: ['buy', 'sell'], required: true },
     filled: { type: Number, default: 0 },
     active: { type: Boolean, default: true },
