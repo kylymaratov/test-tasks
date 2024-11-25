@@ -1,0 +1,42 @@
+{
+  "name": "sfxdx-test",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node dist/main.js",
+    "dev": "cross-env NODE_ENV=development nodemon --watch src --ext ts --exec ts-node src/main.ts",
+    "build": "npx tsc",
+    "lint": "eslint \"{src}/**/*.ts\" --fix",
+    "prettier:check": "npx prettier \"src/**/*.{ts,tsx}\" --check",
+    "prettier:format": "npx prettier \"src/**/*.{ts}\" --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.4",
+    "express": "^4.21.1",
+    "module-alias": "^2.2.3",
+    "mongoose": "^8.8.2",
+    "morgan": "^1.10.0",
+    "web3": "^4.15.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/module-alias": "^2.0.4",
+    "@types/morgan": "^1.9.9",
+    "@types/web3": "^1.0.20",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2"
+  }
+}
